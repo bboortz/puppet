@@ -9,7 +9,7 @@ class my-cron-puppet {
     }
     cron { 'puppet-apply':
         ensure  => present,
-        command => "puppet:///tools/apply.sh",
+        command => "$confdir/tools/apply.sh",
         user    => root,
         minute  => '*/30',
         require => File['post-hook'],
