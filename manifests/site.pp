@@ -1,6 +1,9 @@
 node default {
-	include cron-puppet
-	include 'docker'
+	include vw-cron-puppet
+	include vw-packages
+}
+
+node 'master' {
 }
 docker::image { 'ubuntu':
 	ensure => 'absent',
