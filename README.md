@@ -1,0 +1,1 @@
+Puppet directory: /etc/puppet
