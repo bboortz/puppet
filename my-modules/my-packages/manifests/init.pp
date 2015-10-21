@@ -11,4 +11,7 @@ class my-packages {
 	package { 'wget':
 		ensure => present,
 	}
+	package { 'docker':
+		ensure => present,
+	}
 }
