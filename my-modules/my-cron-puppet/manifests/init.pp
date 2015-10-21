@@ -7,9 +7,9 @@ class my-cron-puppet {
         owner   => root,
         group   => root,
     }
-    cron { 'git-pull and puppet-apply':
+    cron { 'puppet-apply':
         ensure  => present,
-        command => "cd /etc/puppet ; /usr/bin/git pull",
+        command => "puppet:///tools/apply.sh",
         user    => root,
         minute  => '*/30',
         require => File['post-hook'],
