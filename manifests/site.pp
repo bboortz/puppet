@@ -7,7 +7,7 @@ node default {
 node 'master' {
 }
 
-docker::image { 'ubuntu': }
+docker::image { 'centos': }
 
 #docker::image { 'ubuntu':
 #	ensure => 'absent',
