@@ -5,6 +5,6 @@ node default {
 
 node 'master' {
 }
-docker::image { 'ubuntu':
-	ensure => 'absent',
-}
+#docker::image { 'ubuntu':
+#	ensure => 'absent',
+#}
