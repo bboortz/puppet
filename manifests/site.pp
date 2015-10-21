@@ -7,7 +7,7 @@ node default {
 node 'master' {
 }
 
-docker::image { 'base' }
+docker::image { 'base': }
 
 #docker::image { 'ubuntu':
 #	ensure => 'absent',
