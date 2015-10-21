@@ -1,4 +1,4 @@
-class vw-packages {
+class my-packages {
 	package { 'sudo':
 		ensure => present,
 	}

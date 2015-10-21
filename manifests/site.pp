@@ -1,5 +1,6 @@
 node default {
-	include vw-cron-puppet
+	include my-cron-puppet
+	include my-packages
 }
 
 node 'master' {

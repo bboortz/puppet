@@ -1,8 +1,8 @@
-class vw-cron-puppet {
+class my-cron-puppet {
     file { 'post-hook':
         ensure  => file,
         path    => '/etc/puppet/.git/hooks/post-merge',
-        source  => 'puppet:///modules/vw-cron-puppet/post-merge',
+        source  => 'puppet:///modules/my-cron-puppet/post-merge',
         mode    => 0755,
         owner   => root,
         group   => root,
