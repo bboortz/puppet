@@ -3,12 +3,12 @@ class my-docker {
 
 	docker::image { 'centos': }
 
-	docker::image { 'nodejs':
-		docker_file => '/appl/nodejs/nodejs-docker/Dockerfile'
+	docker::image { 'nodejs-appl':
+		docker_file => '/appl/docker/env/images/nodejs-appl'
 	}
 
-	docker::run { 'nodejs':
-		image => 'nodejs',
+	docker::run { 'nodejs-appl':
+		image => 'nodejs-appl',
 		ports => ['8080', '8080'],
 		expose => ['8080', '8080'],
 		restart_service => true,
