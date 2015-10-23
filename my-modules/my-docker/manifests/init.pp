@@ -9,8 +9,8 @@ class my-docker {
 
 	docker::run { 'nodejs-appl':
 		image => 'nodejs-appl',
+		use_name => true,
 		ports => ['8080:8080'],
-		use_names => true,
 		restart_service => true,
 		privileged      => false,
 		pull_on_start   => false,
