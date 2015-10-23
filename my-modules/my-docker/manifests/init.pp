@@ -22,7 +22,7 @@ class my-docker {
 	docker::run { 'nodejs-rest':
 		image => 'nodejs-rest',
 		use_name => true,
-		ports => ['8081:8080'],
+		ports => ['8080:8081'],
 		restart_service => true,
 		privileged      => false,
 		pull_on_start   => false,
