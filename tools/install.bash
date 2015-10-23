@@ -3,20 +3,51 @@
 . ${0%/*}/lib.bash
 
 
-# *** checks ***
-if [ -d /etc/puppet ]; then
-	echo "ERROR: puppet already installed!"
-	exit 1
+# *** function *** 
+f_puppet_install() {
+	$PKG_INST git puppet
+	mv ${PUPPET_DIR} ${PUPPET_DIR}_orig
+	cd ${PUPPET_DIR%/*}				# /etc
+	git clone https://github.com/bboortz/puppet.git
+	puppet module install garethr-docker
+}
+
+f_puppet_update() {
+	cd ${PUPPET_DIR}
+	git pull 
+}
+
+f_docker_install() {
+	$PKG_INST git docker
+	mkdir -p ${DOCKER_DIR%/*}			# /appl
+	git clone https://github.com/bboortz/docker-base.git docker
+
+}
+
+f_docker_update() {
+	cd ${DOCKER_DIR}
+	git pull
+}
+
+
+# *** docker ***
+if [ ! -d ${DOCKER_DIR} ]; then
+	f_docker_install
+else 
+	f_docker_update
 fi
 
 
-# *** install ***
-$PKG_INST puppet
-mv /etc/puppet /etc/puppet_orig
-cd /etc
-git clone https://github.com/bboortz/puppet.git
-puppet module install garethr-docker
-
+# *** puppet ***
+if [ ! -d ${PUPPET_DIR} ]; then
+	f_puppet_install
+else 
+	f_puppet_update
+fi
 
 # *** puppet apply ***
-/etc/puppet/tools/apply.sh
+/etc/puppet/tools/apply.bash
+
+
+
+
