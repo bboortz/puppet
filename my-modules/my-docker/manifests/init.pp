@@ -11,7 +11,7 @@ class my-docker {
 	}
 
 	docker::run { 'nodejs-appl':
-		image => 'nodejs-appl',
+		image => 'nodejs-appl:lastest',
 		use_name => true,
 		ports => ['8080:8080'],
 		restart_service => true,
@@ -20,7 +20,7 @@ class my-docker {
 	}
 
 	docker::run { 'nodejs-rest':
-		image => 'nodejs-rest',
+		image => 'nodejs-rest:lastest',
 		use_name => true,
 		ports => ['8080:8081'],
 		restart_service => true,
