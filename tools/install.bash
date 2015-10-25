@@ -7,7 +7,6 @@
 f_puppet_install() {
 	echo "*** puppet install ***"
 	$PKG_INST git puppet
-	mv ${PUPPET_DIR} ${PUPPET_DIR}_orig
 	cd ${PUPPET_DIR%/*}				# /etc
 	git clone https://github.com/bboortz/puppet.git
 	puppet module install garethr-docker
