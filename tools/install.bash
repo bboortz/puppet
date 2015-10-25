@@ -5,6 +5,7 @@
 
 # *** function *** 
 f_puppet_install() {
+	echo "*** puppet install ***"
 	$PKG_INST git puppet
 	mv ${PUPPET_DIR} ${PUPPET_DIR}_orig
 	cd ${PUPPET_DIR%/*}				# /etc
@@ -13,11 +14,13 @@ f_puppet_install() {
 }
 
 f_puppet_update() {
+	echo "*** puppet update***"
 	cd ${PUPPET_DIR}
 	git pull 
 }
 
 f_docker_install() {
+	echo "*** docker install ***"
 	$PKG_INST git docker
 	mkdir -p ${DOCKER_DIR%/*}			# /appl
 	git clone https://github.com/bboortz/docker-base.git docker
@@ -25,6 +28,7 @@ f_docker_install() {
 }
 
 f_docker_update() {
+	echo "*** docker update ***"
 	cd ${DOCKER_DIR}
 	git pull
 }
@@ -46,6 +50,7 @@ else
 fi
 
 # *** puppet apply ***
+echo "*** puppet apply ***"
 /etc/puppet/tools/apply.bash
 
 

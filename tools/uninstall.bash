@@ -3,6 +3,14 @@
 . ${0%/*}/lib.bash
 
 
+# *** functions ***
+f_puppet_uninstall() {
+        echo "*** puppet uninstall ***"
+	$PKG_RM puppet
+        mv ${PUPPET_DIR} ${PUPPET_DIR}_$( date "+%s" )
+}
+
+
 # *** checks ***
 if [ ! -d /etc/puppet ]; then
 	echo "ERROR: puppet not installed!"
@@ -11,10 +19,6 @@ fi
 
 
 # *** uninstall ***
-$PKG_RM puppet
+f_puppet_uninstall
 
-
-# *** remove directories ***
-rm -rf /etc/puppet
-rm -rf /etc/puppet_orig
 
